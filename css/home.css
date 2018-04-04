@@ -1,0 +1,66 @@
+nav a {
+    display: block;
+}
+.container-banner{
+	margin-bottom: 10px;
+	position: relative;
+}
+.container-banner-fix{
+	width: 100%;
+	background-color: white;
+	height: 640px;
+	position: relative;
+	margin-bottom: 40px;
+}
+.banner-pic {
+    height: 100%;
+   
+    position: relative;
+    background-repeat: no-repeat;
+    background-color: #97978b;
+}
+.container-search{
+	width: 100%;
+	position: absolute;
+	top: 80px;
+}
+.search-section {
+   position: relative;
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+   top: 142px;
+   max-width: 1122px;
+}
+
+.title {
+    display: block;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 1.4em;
+    color: #FFF;
+    position: relative;
+    height: 100%;
+    max-width: 15em;
+    text-shadow: 0 0 24px rgba(0, 0, 0, 0.5),
+    0 0 64px rgba(0, 0, 0, 0.25),
+    0 2px rgba(0, 0, 0, 0.75)
+}
+
+.search-bar-decoration {
+    border: 10px solid rgba(255, 255, 255, .5);
+    background: white;
+    background-clip: padding-box;
+    border-radius: 10px;
+}
+.demo-block{
+	position: relative;
+	height: 173px;
+	padding-right: auto;
+}
+.img-polaroid{
+	padding: 4px;
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
