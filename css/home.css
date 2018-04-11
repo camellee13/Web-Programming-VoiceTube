@@ -3,10 +3,13 @@ nav a {
 }
 .container-banner{
 	margin-bottom: 10px;
+  margin-left: : -15px;
+  margin-right: -15px;
 	position: relative;
 }
 .container-banner-fix{
 	width: 100%;
+
 	background-color: white;
 	height: 640px;
 	position: relative;
