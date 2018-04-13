@@ -835,7 +835,7 @@ var tag = document.createElement('script');
 var stopTime = -1; // -1 means no need to stop
 var startTime = -1;
 var time
-var repeat = false;
+var repeat = true;
 var HR_TIME = 3600,
     MIN_TIME = 60;
 var timeOut;
@@ -882,11 +882,13 @@ function checkIfStop() {
         //console.log("stopTime: " + stopTime);
         //console.log("result: " + (parseFloat(currentTime) >= parseFloat(stopTime)));
         if ((parseFloat(currentTime) >= parseFloat(stopTime))) {
-            player.pauseVideo();
             if (repeat) {
+                console.log("in repeat");
                 player.seekTo(startTime);
-                timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
+                player.playVideo();
+                timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(startTime)) * 1000);
             } else {
+                player.pauseVideo();
                 stopTime = -1;
             }
         } else {
@@ -922,7 +924,9 @@ function onPlayerStateChange(event) {
             //        timeout = 0;
         }
     } else if (event.data == YT.PlayerState.PAUSED) {
-        clearTimeout(timeout);
+        if (stopTime > -1) {
+            timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
+        }
     }
 }
 
