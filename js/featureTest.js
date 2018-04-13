@@ -1,30 +1,27 @@
-
-
-
 var url = window.location.href;
-console.log(url); 
+console.log(url);
 var id;
 //get url id
-for(var i = url.length, ref = url.length; i >=0 ; i = i -1){
-    if(url[i] == '/'){
-        id = parseInt(url.substring(i+1, ref));
+for (var i = url.length, ref = url.length; i >= 0; i = i - 1) {
+    if (url[i] == '/') {
+        id = parseInt(url.substring(i + 1, ref));
         break;
     }
 }
-var subtitlePath = "./js/"+id+".js";
+var subtitlePath = "./js/" + id + ".js";
 console.log(subtitlePath);
 $.getScript(subtitlePath, function() {
     content.forEach(function(element, index) {
-    var link = $(document.createElement('a'));
-    $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
-});
+        var link = $(document.createElement('a'));
+        $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
+    });
 });
 var id = url.substring()
 var tag = document.createElement('script');
 var stopTime = -1; // -1 means no need to stop
 var startTime = -1;
 var time
-var repeat = true;
+var repeat = false;
 var HR_TIME = 3600,
     MIN_TIME = 60;
 var timeOut;
@@ -36,29 +33,28 @@ var timeout = 0;
 
 
 
-$(".subtitle").click(
-    function() {
-        var startTimeReformat = (content[this.id]["start_time"]).replace(',', '');
-        var length = startTimeReformat.length;
-        var startHr = parseInt(startTimeReformat.substring(0, 2), 10);
-        var startMin = parseInt(startTimeReformat.substring(3, 5), 10);
-        var startSec = parseInt(startTimeReformat.substring(6, length), 10);
-        startTime = startHr * HR_TIME + startMin * MIN_TIME + startSec / 1000;
-        console.log("starttime: " + startTime);
-        player.seekTo((startHr * HR_TIME + startMin * MIN_TIME + startSec / 1000));
-        player.playVideo();
-        var endTimeReformat = (content[this.id]["end_time"]).replace(',', '');
-        var length = endTimeReformat.length;
-        var endHr = parseInt(endTimeReformat.substring(0, 2), 10);
-        var endMin = parseInt(endTimeReformat.substring(3, 5), 10);
-        var endSec = parseInt(endTimeReformat.substring(6, length), 10);
-        stopTime = (endHr * HR_TIME + endMin * MIN_TIME + endSec / 1000);
-        console.log("stoptime: " + stopTime);
-        //if state == pause not need to set timer
+$(document).on('click', '.subtitle', function() {
+    var startTimeReformat = (content[this.id]["start_time"]).replace(',', '');
+    var length = startTimeReformat.length;
+    var startHr = parseInt(startTimeReformat.substring(0, 2), 10);
+    var startMin = parseInt(startTimeReformat.substring(3, 5), 10);
+    var startSec = parseInt(startTimeReformat.substring(6, length), 10);
+    startTime = startHr * HR_TIME + startMin * MIN_TIME + startSec / 1000;
+    console.log("starttime: " + startTime);
+    player.seekTo((startHr * HR_TIME + startMin * MIN_TIME + startSec / 1000));
+    player.playVideo();
+    var endTimeReformat = (content[this.id]["end_time"]).replace(',', '');
+    var length = endTimeReformat.length;
+    var endHr = parseInt(endTimeReformat.substring(0, 2), 10);
+    var endMin = parseInt(endTimeReformat.substring(3, 5), 10);
+    var endSec = parseInt(endTimeReformat.substring(6, length), 10);
+    stopTime = (endHr * HR_TIME + endMin * MIN_TIME + endSec / 1000);
+    console.log("stoptime: " + stopTime);
+    //if state == pause not need to set timer
 
-        timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(startTime)) * 1000);
+    timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(startTime)) * 1000);
 
-    });
+});
 
 function checkIfStop() {
     if (stopTime != -1) {
@@ -108,10 +104,6 @@ function onPlayerStateChange(event) {
             //debugger;
             //        setTimeout(pauseVideo, timeout);
             //        timeout = 0;
-        }
-    } else if (event.data == YT.PlayerState.PAUSED) {
-        if (stopTime > -1) {
-            timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
         }
     }
 }
