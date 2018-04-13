@@ -4,23 +4,21 @@ var id;
 //get url id
 for (var i = url.length, ref = url.length; i >= 0; i = i - 1) {
     if (url[i] == '/') {
-        id = url.substring(i + 1, ref-5);
+        id = url.substring(i + 1, ref - 6);
         break;
     }
 }
 var subtitlePath = "./js/" + id + ".js";
-var subtitleName = "_"+id;
-console.log(subtitlePath);
-var content;
-$.getScript("./js/subtitles.js", function() {
-    content = window[subtitleName];
-    var contentSize = content.length;
-    content.slice(1, contentSize).forEach(function(element, index) {
-        var link = $(document.createElement('a'));
-        $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
-    });
+var subtitleName = "_" + id;
+console.log(subtitleName);
+var content = window[subtitleName];
+console.log(typeof(content));
+var contentSize = content.length;
+content.slice(1, contentSize).forEach(function(element, index) {
+    var link = $(document.createElement('a'));
+    $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
 });
-var id = url.substring()
+
 var tag = document.createElement('script');
 var stopTime = -1; // -1 means no need to stop
 var startTime = -1;
@@ -76,10 +74,6 @@ function checkIfStop() {
                 player.pauseVideo();
                 stopTime = -1;
             }
-        } else {
-
-            timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
-
         }
     }
 }
@@ -100,13 +94,8 @@ function onYouTubePlayerAPIReady() {
 function onPlayerStateChange(event) {
 
     if (event.data == YT.PlayerState.PLAYING) {
-        if (event.data == YT.PlayerState.PLAYING && timeout > 0) {
-            if (stopTime > -1) {
-                timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
-            }
-            //debugger;
-            //        setTimeout(pauseVideo, timeout);
-            //        timeout = 0;
+        if (stopTime > -1) {
+            timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
         }
     }
 }
