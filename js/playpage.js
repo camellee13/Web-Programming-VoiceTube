@@ -26,7 +26,7 @@ var content = window[subtitleName];
 
 $(window).on('load', function() {
     content.forEach(function(element, index) {
-        $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a><br>");
+        $("#subtitle_block").append("<tr><td>" + "<a id='" + index + "'' class='subtitle' href='#' >" + "<i class='far fa-play-circle fa-lg'></i>" + "</a></td>" + "<td><a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a></td></tr>");
     });
 });
 
