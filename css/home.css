@@ -101,18 +101,14 @@ nav a {
 }
 
 
+.putcenter {
 
-
-
-
-.spaceleft {
-
-margin-left: 10%;
+margin-left: 70%;
 
 }
 
 
-
+/*carousel*/
 .carousel-inner .active.left { 
   left: -25%; 
 }
@@ -136,26 +132,14 @@ margin-left: 10%;
 
 
 
-
-
-.backcol {
-
-  background-color: black;
+.thumbnail h5{
+    line-height: 1.3;
 }
 
 
 
-.leftshift {
-    padding-left: 50px;
-}
 
-.whitee {
-  color:white;
+.minw {
 
-  font-size:xx-large;
-}
-
-.spaceleft {
-
-   left: 30px;
+  min-width:75%
 }
