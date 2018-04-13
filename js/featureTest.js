@@ -1,5 +1,4 @@
-var content = [
-    {
+var content = [{
         "start_time": "00:00:00,000",
         "end_time": "00:00:00,000",
         "text": "Youtube subtitles download by mo.dbxdb.com "
@@ -830,78 +829,128 @@ var content = [
         "text": "I'm not editing anything in here. Just leave. Subtitles End: mo.dbxdb.com"
     }
 ];
-   
-    console.log(content);
-    var tag = document.createElement('script');
-    tag.src = "http://www.youtube.com/player_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    var player;
-    var timeout = 0;
-    $(document).ready(function(){
-        //insert subtitle in to box
-        content.forEach( function(element, index) {
-            var link = $(document.createElement('a'));
-            $("#subtitle_block").append("<a id='"+index+"'' class='subtitle' href='#' >"+element["text"]+"</a>");
-        });
-        $(".subtitle").click(
-        function(){
-            console.log(content[this.id]["start_time"][2]);
-            var length = (content[this.id]["start_time"]).length;
-            var hr = (content[this.id]["start_time"]).substring(0, 2);
-            var min = (content[this.id]["start_time"]).substring(3, 5);
-            var sec = parseInt((content[this.id]["start_time"]).substring(6, length), 10);
-            console.log(sec);
-            player.seekTo(25);
-            console.log(content[this.id]["start_time"]);
-        });
-    });
-    function onYouTubePlayerAPIReady() {
-        player = new YT.Player('player', {
-            height: '390',
-            width: '640',
-            videoId: '8Jg3ZNJJRqU',
-            events: {
-                //'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-        });
-    }
 
-    function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && timeout > 0) {
-            //debugger;
-            setTimeout(pauseVideo, timeout);
-            timeout = 0;
+console.log(content);
+var tag = document.createElement('script');
+var stopTime = -1; // -1 means no need to stop
+var startTime = -1;
+var time
+var repeat = false;
+var HR_TIME = 3600,
+    MIN_TIME = 60;
+var timeOut;
+tag.src = "http://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
+var timeout = 0;
+content.forEach(function(element, index) {
+    var link = $(document.createElement('a'));
+    $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
+});
+
+
+$(".subtitle").click(
+    function() {
+        var startTimeReformat = (content[this.id]["start_time"]).replace(',', '');
+        var length = startTimeReformat.length;
+        var startHr = parseInt(startTimeReformat.substring(0, 2), 10);
+        var startMin = parseInt(startTimeReformat.substring(3, 5), 10);
+        var startSec = parseInt(startTimeReformat.substring(6, length), 10);
+        startTime = startHr * HR_TIME + startMin * MIN_TIME + startSec / 1000;
+        console.log("starttime: " + startTime);
+        player.seekTo((startHr * HR_TIME + startMin * MIN_TIME + startSec / 1000));
+        player.playVideo();
+        var endTimeReformat = (content[this.id]["end_time"]).replace(',', '');
+        var length = endTimeReformat.length;
+        var endHr = parseInt(endTimeReformat.substring(0, 2), 10);
+        var endMin = parseInt(endTimeReformat.substring(3, 5), 10);
+        var endSec = parseInt(endTimeReformat.substring(6, length), 10);
+        stopTime = (endHr * HR_TIME + endMin * MIN_TIME + endSec / 1000);
+        console.log("stoptime: " + stopTime);
+        //if state == pause not need to set timer
+
+        timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(startTime)) * 1000);
+
+    });
+
+function checkIfStop() {
+    if (stopTime != -1) {
+        var currentTime = player.getCurrentTime();
+
+        console.log("currentTime: " + currentTime);
+        //console.log("stopTime: " + stopTime);
+        //console.log("result: " + (parseFloat(currentTime) >= parseFloat(stopTime)));
+        if ((parseFloat(currentTime) >= parseFloat(stopTime))) {
+            player.pauseVideo();
+            if (repeat) {
+                player.seekTo(startTime);
+                timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
+            } else {
+                stopTime = -1;
+            }
+        } else {
+
+            timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
+
         }
     }
+}
 
-    $(window).on('load', function() {
-        jQuery('#test').click(function() {
-            console.log('test');
-            console.log(player);
-            player.pauseVideo();
-            player.seekTo(25);
-            timeout = 10000;
-            player.playVideo();
-            return false;
-        });
+
+function onYouTubePlayerAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: '8Jg3ZNJJRqU',
+        events: {
+            //'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
     });
+}
 
-    $(window).on('load', function() {
-        jQuery('#test2').click(function() {
-            console.log('test2');
-            console.log(player);
-            player.pauseVideo();
-            player.seekTo(35);
+function onPlayerStateChange(event) {
+
+    if (event.data == YT.PlayerState.PLAYING) {
+        if (event.data == YT.PlayerState.PLAYING && timeout > 0) {
+            if (stopTime > -1) {
+                timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
+            }
             //debugger;
-            timeout = 10000;
-            player.playVideo();
-            return false;
-        });
-    });
-
-    function pauseVideo() {
-        player.pauseVideo();
+            //        setTimeout(pauseVideo, timeout);
+            //        timeout = 0;
+        }
+    } else if (event.data == YT.PlayerState.PAUSED) {
+        clearTimeout(timeout);
     }
-   
+}
+
+$(window).on('load', function() {
+    jQuery('#test').click(function() {
+        console.log('test');
+        console.log(player);
+        player.pauseVideo();
+        player.seekTo(25);
+        timeout = 10000;
+        player.playVideo();
+        return false;
+    });
+});
+
+$(window).on('load', function() {
+    jQuery('#test2').click(function() {
+        console.log('test2');
+        console.log(player);
+        player.pauseVideo();
+        player.seekTo(35);
+        //debugger;
+        timeout = 10000;
+        player.playVideo();
+        return false;
+    });
+});
+
+function pauseVideo() {
+    player.pauseVideo();
+}
