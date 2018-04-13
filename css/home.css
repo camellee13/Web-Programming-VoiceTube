@@ -1,39 +1,68 @@
+body {
+    background: url("https://cdn.voicetube.com/assets/img/bg.jpg")
+}
+
+h2 {
+    color: #777;
+}
+
+section{
+    margin: 50px 0px;
+}
+
+/*nav bar*/
+
 nav a {
     display: block;
 }
-.container-banner{
-  margin-bottom: 10px;
-  margin-left: : -15px;
-  margin-right: -15px;
-  position: relative;
-}
-.container-banner-fix{
-  width: 100%;
 
-  background-color: white;
-  height: 640px;
-  position: relative;
-  margin-bottom: 40px;
+.navbar {
+    min-height: 80px;
 }
-.banner-pic {
-    height: 100%;
-   
+
+.navbar-nav>li>a {
+    color: #fff;
+}
+
+.navbar-brand {
+    padding: 24px 20px;
+    height: 80px;
+}
+
+.navbar-header img {
+    height: 32px;
+    width: auto;
+}
+
+
+/*banner*/
+
+.masthead {
+  display: table;
+    width: 100%;
+    height: 640px;
     position: relative;
-    background-repeat: no-repeat;
-    background-color: #97978b;
+    margin-bottom: 40px;
+  color: white;
+  background: url("https://cdn.voicetube.com/assets/img/banner02.jpg") no-repeat 35% 0%;
+  background-color: white;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-.container-search{
-  width: 100%;
-  position: absolute;
-  top: 80px;
+
+.masthead .intro-body {
+  display: table-cell;
+  vertical-align: middle;
 }
-.search-section {
-   position: relative;
-   width: 80%;
-   margin-left: auto;
-   margin-right: auto;
-   top: 142px;
-   max-width: 1122px;
+
+
+
+/* banner - title & search-bar*/
+
+.search-section{
+    margin: 5%;
 }
 
 .title {
@@ -45,10 +74,9 @@ nav a {
     position: relative;
     height: 100%;
     max-width: 15em;
-    text-shadow: 0 0 24px rgba(0, 0, 0, 0.5),
-    0 0 64px rgba(0, 0, 0, 0.25),
-    0 2px rgba(0, 0, 0, 0.75)
+    text-shadow: 0 0 24px rgba(0, 0, 0, 0.5), 0 0 64px rgba(0, 0, 0, 0.25), 0 2px rgba(0, 0, 0, 0.75)
 }
+
 
 .search-bar-decoration {
     border: 10px solid rgba(255, 255, 255, .5);
@@ -56,47 +84,18 @@ nav a {
     background-clip: padding-box;
     border-radius: 10px;
 }
-.demo-block{
-  position: relative;
-  height: 173px;
-  padding-right: auto;
-}
-.img-polaroid{
-  padding: 4px;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+
+
+
+.demo-block {
+    padding-top: 30%;
+    height: 173px;
 }
 
-
-
-
-
-.putcenter {
-
-margin-left: 70%;
-
-}
-
-
-
-.carousel-inner .active.left { 
-  left: -25%; 
-}
-
-.carousel-inner .next        {
- left:  25%; 
-}
-
-
-.carousel-inner .prev    { 
-  left: -25%; 
-}
-
-.carousel-control        { 
-  width:  4%; 
-}
-.carousel-control.left,.carousel-control.right {
-  margin-left:15px;background-image:none;
-
+.img-polaroid {
+    padding: 4px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }

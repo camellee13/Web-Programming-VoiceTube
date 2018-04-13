@@ -1,0 +1,75 @@
+/*navbar*/
+
+.navbar-toggle {
+    /* (80px - button height 34px) / 2 = 23px */
+    margin-top: 23px;
+    padding: 9px 10px !important;
+}
+
+@media (max-width: 991px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,
+    .navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    /*
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+*/
+    .collapse.in {
+        display: block !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        -webkit-transition: all 0.6s ease-out;
+        -moz-transition: all 0.6s ease-out;
+        -o-transition: all 0.6s ease-out;
+        -ms-transition: all 0.6s ease-out;
+        transition: all 0.6s ease-out;
+        background-color: transparent;
+        background: transparent;
+        border-color: transparent;
+    }
+    .navbar-inner {
+        padding: 0 40px;
+    }
+    .navbar.scrolled {
+        background: rgb(68, 68, 68);
+        /* IE */
+        background: rgba(0, 0, 0, 0.78);
+        /* NON-IE */
+    }
+    .navbar-nav > li > a {
+        /* (80px - line-height of 27px) / 2 = 26.5px */
+        padding-top: 26.5px;
+        padding-bottom: 26.5px;
+        line-height: 27px;
+    }
+    .navbar-form {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
