@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>VoiceTube</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--debug -->
@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="./css/responsive.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-<script src="./js/home.js"></script>
 </head>
+
 <body>
     <!--
             <div style="text-align: left; margin-bottom: auto; background-color: #ff7849; text-shadow: none; font-size: 16px; padding: 15px">
@@ -122,12 +122,10 @@
             <div class="raw">
                 <div class="col-md-9">
                     <div class="panel panel-default">
-                        <div class="panel-body">
-                            Basic panel example
-                        </div>
+                        <div class="panel-body"> Basic panel example </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-sm-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">Pronunciation Challenge On Feeling Depressed</h3> </div>
@@ -139,78 +137,122 @@
             </div>
         </div>
     </section>
-    <div class="container">
-        <h2>New Videos</h2>
-        <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
-    </div>
-    <!--container -->
-    <div class="container">
-        <h3>Navbar With Dropdown</h3>
-        <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
-    </div>
-    <!--container -->
-    <div class="container">
-        <h3>Navbar With Dropdown</h3>
-        <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
-    </div>
-    <!--container -->
-    <div class="container">
-        <h3>Navbar With Dropdown</h3>
-        <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
-    </div>
-    <!--container -->
-    <div class="container">
-        <h3>Navbar With Dropdown</h3>
-        <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
-
-    </div>
-
-
-
-
-
-<div class ="minw">
-<div class="col-md-9 col-md-offset-1">
-<div class="carousel slide" id="myCarousel">
-  <div class="carousel-inner">
-    <div class="item active">
-
-      <div class="row">
-      <div class="col-xs-3">  <div class="thumbnail"><a href="#"><img src="http://placehold.it/500/e499e4/fff&amp;text=1" class="img-responsive"></a></div> </div>
-      <div class="col-xs-3"> <div class="thumbnail"><a href="#"><img src="http://placehold.it/500/e499e4/fff&amp;text=2" class="img-responsive"></a></div></div>
-      <div class="col-xs-3"> <div class="thumbnail"><a href="#"><img src="http://placehold.it/500/e499e4/fff&amp;text=3" class="img-responsive"></a></div></div>
-      <div class="col-xs-3"> <div class="thumbnail"><a href="#"><img src="http://placehold.it/500/e499e4/fff&amp;text=4" class="img-responsive"></a></div> </div>
-      </div>
-    </div>
-    <div class="item">
-      <div class="row">
-      <div class="col-xs-3"> <div class="thumbnail"><a href="#"><img src="http://placehold.it/500/e499e4/fff&amp;text=5" class="img-responsive"></a></div> </div>
-      <div class="col-xs-3"> <div class="thumbnail"><a href="#"><img src="http://placehold.it/500/e499e4/fff&amp;text=6" class="img-responsive"></a></div> </div>
-      <div class="col-xs-3"> <div class="thumbnail"><a href="#"><img src="http://placehold.it/500/e499e4/fff&amp;text=7" class="img-responsive"></a></div> </div>
-      <div class="col-xs-3"> <div class="thumbnail"><a href="#"><img src="http://placehold.it/500/e499e4/fff&amp;text=8" class="img-responsive"></a></div> </div>
-      </div>
-    </div>
-  </div>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-</div>
-<button type="button" class="btn btn-primary btn-block">more videos</button>
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-    <!--container -->
+    <section id="new_video">
+        <div class="container">
+            <div class="raw">
+                <div class="col-md-12">
+                    <h2>New Videos</h2>
+                    <div class="minw">
+                        <div class="carousel slide" id="myCarousel">
+                            <div class="carousel-add">
+                                <div class="item active">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="thumbnail">
+                                                <a href="#"><img src="http://img.youtube.com/vi/uSTNyHkde08/maxresdefault.jpg" class="img-responsive"></a>
+                                                <div class="caption">
+                                                    <div class="caption-title">
+                                                        <h5>Why isn't the world covered in poop? - Eleanor Slade and Paul Manning</h5> </div>
+                                                    <p><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> 1238</p>
+                                                    <p><span class="label label-primary">Int</span> <span class="label label-warning">US</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="thumbnail">
+                                                <a href="#"><img src="http://img.youtube.com/vi/f2O6mQkFiiw/maxresdefault.jpg" class="img-responsive"></a>
+                                                <div class="caption">
+                                                    <div class="caption-title">
+                                                        <h5>How to practice effectively...for just about anything - Annie Bosler and Don Greene</h5></div>
+                                                    <p><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> 1238</p>
+                                                    <p><span class="label label-primary">Int</span> <span class="label label-warning">US</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="thumbnail">
+                                                <a href="#"><img src="http://img.youtube.com/vi/lEXBxijQREo/maxresdefault.jpg" class="img-responsive"></a>
+                                                <div class="caption">
+                                                    <div class="caption-title">
+                                                        <h5>How sugar affects the brain - Nicole Avena</h5> </div>
+                                                    <p><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> 1238</p>
+                                                    <p><span class="label label-primary">Int</span> <span class="label label-warning">US</span></p>
+                                                </div>
+                                                
+                                                </div>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="thumbnail">
+                                                <a href="#"><img src="http://img.youtube.com/vi/wxzc_2c6GMg/maxresdefault.jpg" class="img-responsive"></a>
+                                                <div class="caption">
+                                                    <div class="caption-title">
+                                                        <h5>How do carbohydrates impact your health? - Richard J. Wood</h5> </div>
+                                                    <p><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> 1238</p>
+                                                    <p><span class="label label-primary">Int</span> <span class="label label-warning">US</span></p>
+                                                </div>
+                                                
+                                                 </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="thumbnail">
+                                                <a href="#"><img src="http://img.youtube.com/vi/VEQaH4LruUo/maxresdefault.jpg" class="img-responsive"></a>
+                                                <div class="caption">
+                                                    <div class="caption-title">
+                                                        <h5>What is a calorie? - Emma Bryce</h5> </div>
+                                                    <p><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> 1238</p>
+                                                    <p><span class="label label-primary">Int</span> <span class="label label-warning">US</span></p>
+                                                </div>
+                                                
+                                                 </div>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="thumbnail">
+                                                <a href="#"><img src="http://img.youtube.com/vi/2tM1LFFxeKg/maxresdefault.jpg" class="img-responsive"></a>
+                                                <div class="caption">
+                                                    <div class="caption-title">
+                                                        <h5>What makes muscles grow? - Jeffrey Siegel</h5> </div>
+                                                    <p><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> 1238</p>
+                                                    <p><span class="label label-primary">Int</span> <span class="label label-warning">US</span></p>
+                                                </div>
+                                                
+                                                 </div>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="thumbnail">
+                                                <a href="#"><img src="http://img.youtube.com/vi/wUEl8KrMz14/maxresdefault.jpg" class="img-responsive"></a>
+                                                <div class="caption">
+                                                    <div class="caption-title">
+                                                        <h5>Why sitting is bad for you - Murat Dalkilinç</h5> </div>
+                                                    <p><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> 1238</p>
+                                                    <p><span class="label label-primary">Int</span> <span class="label label-warning">US</span></p>
+                                                </div>
+                                                
+                                                 </div>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-12">
+                                            <div class="thumbnail">
+                                                <a href="#"><img src="http://img.youtube.com/vi/0Tk82hEHNnY/maxresdefault.jpg" class="img-responsive"></a>
+                                                <div class="caption">
+                                                    <div class="caption-title">
+                                                        <h5>How To Be Confident</h5> </div>
+                                                    <p><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> 1238</p>
+                                                    <p><span class="label label-primary">Int</span> <span class="label label-warning">US</span></p>
+                                                </div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a> </div>
+                        <button type="button" class="btn btn-primary btn-block">more videos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
-
+<script src="./js/home.js"></script>
 
 </html>

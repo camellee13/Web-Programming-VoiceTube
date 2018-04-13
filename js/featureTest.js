@@ -9,23 +9,19 @@ for (var i = url.length, ref = url.length; i >= 0; i = i - 1) {
     }
 }
 
-var subtitlePath = "./js/" + id + ".js";
 
 var subtitleName = "_"+id;
-/*console.log(subtitlePath);
 console.log(subtitleName);
-console.log(_uSTNyHkde08[1]);*/
-//var content;
-// $.getScript("./js/subtitles.js", function() {
 var content = window[subtitleName];
-//console.log(content[1]);
-var contentSize = content.length;
-console.log(contentSize);
-content.slice(1, contentSize).forEach(function(element, index) {
-    console.log(element.text);
-     $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element.text + "</a>");
- });
-// });
+
+$(window).on('load', function() {
+    var contentSize = content.length;
+    content.slice(1, contentSize).forEach(function(element, index) {
+        var link = $(document.createElement('a'));
+        $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
+    });
+});
+
 var tag = document.createElement('script');
 var stopTime = -1; // -1 means no need to stop
 var startTime = -1;
@@ -38,8 +34,6 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 var timeout = 0;
-
-
 
 $(document).on('click', '.subtitle', function() {
     var startTimeReformat = (content[this.id]["start_time"]).replace(',', '');
