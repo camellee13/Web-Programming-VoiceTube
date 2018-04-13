@@ -8,19 +8,23 @@ for (var i = url.length, ref = url.length; i >= 0; i = i - 1) {
         break;
     }
 }
+
 var subtitlePath = "./js/" + id + ".js";
 var subtitleName = "_"+id;
 console.log(subtitlePath);
-var content;
-$.getScript("./js/subtitles.js", function() {
-    content = window[subtitleName];
-    var contentSize = content.length;
-    content.slice(1, contentSize).forEach(function(element, index) {
-        var link = $(document.createElement('a'));
-        $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
-    });
-});
-var id = url.substring()
+console.log(subtitleName);
+console.log(_uSTNyHkde08[1]);
+//var content;
+// $.getScript("./js/subtitles.js", function() {
+var content = window[subtitleName];
+console.log(content[1]);
+var contentSize = content.length;
+console.log(contentSize);
+// content.slice(1, contentSize).forEach(function(element, index) {
+//     var link = $(document.createElement('a'));
+//     $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
+// });
+// });
 var tag = document.createElement('script');
 var stopTime = -1; // -1 means no need to stop
 var startTime = -1;
@@ -76,11 +80,11 @@ function checkIfStop() {
                 player.pauseVideo();
                 stopTime = -1;
             }
-        } else {
+      }  /* else {
 
             timeout = setTimeout(checkIfStop, (parseFloat(stopTime) - parseFloat(currentTime)) * 1000);
 
-        }
+        }*/
     }
 }
 
