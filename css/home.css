@@ -99,3 +99,44 @@ nav a {
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+
+
+
+
+
+.putcenter {
+
+margin-left: 70%;
+
+}
+
+
+
+.carousel-inner .active.left { 
+  left: -25%; 
+}
+
+.carousel-inner .next        {
+ left:  25%; 
+}
+
+
+.carousel-inner .prev    { 
+  left: -25%; 
+}
+
+.carousel-control        { 
+  width:  4%; 
+}
+.carousel-control.left,.carousel-control.right {
+  margin-left:15px;background-image:none;
+
+}
+
+
+
+.minw {
+
+  min-width:75%
+}
