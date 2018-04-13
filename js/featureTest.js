@@ -1,17 +1,21 @@
 var url = window.location.href;
-console.log(url);
+url.replace('#', '');
 var id;
 //get url id
 for (var i = url.length, ref = url.length; i >= 0; i = i - 1) {
     if (url[i] == '/') {
-        id = parseInt(url.substring(i + 1, ref));
+        id = url.substring(i + 1, ref-5);
         break;
     }
 }
 var subtitlePath = "./js/" + id + ".js";
+var subtitleName = "_"+id;
 console.log(subtitlePath);
-$.getScript(subtitlePath, function() {
-    content.forEach(function(element, index) {
+var content;
+$.getScript("./js/subtitles.js", function() {
+    content = window[subtitleName];
+    var contentSize = content.length;
+    content.slice(1, contentSize).forEach(function(element, index) {
         var link = $(document.createElement('a'));
         $("#subtitle_block").append("<a id='" + index + "'' class='subtitle' href='#' >" + element["text"] + "</a>");
     });
@@ -20,7 +24,6 @@ var id = url.substring()
 var tag = document.createElement('script');
 var stopTime = -1; // -1 means no need to stop
 var startTime = -1;
-var time
 var repeat = false;
 var HR_TIME = 3600,
     MIN_TIME = 60;
@@ -86,7 +89,7 @@ function onYouTubePlayerAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: '8Jg3ZNJJRqU',
+        videoId: id,
         events: {
             //'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
