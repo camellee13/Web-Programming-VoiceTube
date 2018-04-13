@@ -105,9 +105,9 @@ nav a {
 
 
 
-.putcenter {
+.spaceleft {
 
-margin-left: 70%;
+margin-left: 10%;
 
 }
 
@@ -136,7 +136,26 @@ margin-left: 70%;
 
 
 
-.minw {
 
-  min-width:75%
+
+.backcol {
+
+  background-color: black;
+}
+
+
+
+.leftshift {
+    padding-left: 50px;
+}
+
+.whitee {
+  color:white;
+
+  font-size:xx-large;
+}
+
+.spaceleft {
+
+   left: 30px;
 }
