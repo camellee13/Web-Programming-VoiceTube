@@ -7,7 +7,7 @@ h2 {
 }
 
 section{
-    margin: 50px 0px;
+    margin: 20px 0px;
 }
 
 /*nav bar*/
@@ -119,13 +119,26 @@ nav a {
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
+}s
 
 
 .putcenter {
 
 margin-left: 70%;
 
+}
+
+
+/*new-video*/
+#new_video{
+    padding-bottom: 50px;
+}
+
+
+@media (max-width: 768px) {
+    #new_video{
+        padding-top: 80px;
+    }
 }
 
 
