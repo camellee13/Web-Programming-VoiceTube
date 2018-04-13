@@ -73,3 +73,11 @@
     }
 }
 
+@media (min-width: 768px) {
+    .caption-title{
+        height: 45px;
+        overflow:hidden;
+        margin-bottom: 10px;
+    }
+}
+
