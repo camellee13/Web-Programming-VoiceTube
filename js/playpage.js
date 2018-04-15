@@ -54,7 +54,7 @@ function onPlayerStateChange(event) {
   clearTimeout(timer);
   if (event.data == YT.PlayerState.PLAYING) {
     var currentTime = player.getCurrentTime();
-    if (currentTime * 1000 > startTime && currentTime * 1000 < stopTime) {
+    if (currentTime * 1000 >= startTime && currentTime * 1000 <= stopTime) {
       timeoutMillsec = stopTime - currentTime * 1000;
       if (subClicked) {
         if (repeat) {
@@ -68,8 +68,8 @@ function onPlayerStateChange(event) {
       id = whichSub(currentTime * 1000);
       stopTime = content[id]["end_time"];
       timeoutMillsec = stopTime - currentTime * 1000;
-      scrollSub(id);
       colorSub(id);
+      scrollSub(id);
       timer = setTimeout(function() {sequenceSub(id+1);}, timeoutMillsec);
     }
   }
