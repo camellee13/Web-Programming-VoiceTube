@@ -93,7 +93,7 @@ function colorSub(new_id) {
   if (s_id != -1) {
     $("#subtitle_text_" + s_id).css("background-color", "");
   }
-  $("#subtitle_text_" + new_id).css("background-color", "green");
+  $("#subtitle_text_" + new_id).css("background-color", "#ccc");
   s_id = new_id;
 }
 
